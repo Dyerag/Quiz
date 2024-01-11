@@ -5,6 +5,7 @@ namespace Quiz
 {
     internal class Program
     {
+        //nextLine = Console.GetCursorPosition().Top+1;
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
@@ -15,13 +16,19 @@ namespace Quiz
 
             // todo Add the ability to see how many questions there are
             GUI.Print("Quizzen har 6 spørgsmål.");
-            Console.ReadKey();
+            Console.ReadKey(true);
 
-            GUI.Print("Du vælger dit svar ved at trykke A, B, eller C.",Console.GetCursorPosition().Top+1);
-            GUI.Print("Alternativt kan du også bruge 1, 2, eller 3", Console.GetCursorPosition().Top+1);
+            GUI.Print("Du vælger dit svar ved at trykke A, B, eller C.", NextLine());
+            GUI.Print("Alternativt kan du også bruge 1, 2, eller 3.", NextLine());
+            GUI.Print("Når du er klar, skal du bare trykke noget for at begynde",NextLine());
+            Console.ReadKey(true);
+            
+            Game.Play();
+        }
 
-
-
+        static int NextLine()
+        {
+            return Console.GetCursorPosition().Top + 1;
         }
 
         static private void Theme(string name)

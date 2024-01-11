@@ -18,12 +18,13 @@ namespace Quiz
             Console.ForegroundColor = ConsoleColor.White;
             if (pause == 0)
             {
-                Console.ReadKey();
+                Console.ReadKey(true);
             }
             else
             {
                 Thread.Sleep(pause);
             }
+
         }
 
         /// <summary>
@@ -36,5 +37,6 @@ namespace Quiz
             Console.SetCursorPosition(15, 2);
             Console.Write(text);
         }
+
     }
 }
