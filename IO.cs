@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace Quiz
 {
-    internal class IO
+    public class IO
     {
-        public string Paths = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop),"Questions");
+        private string _filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Questions");
+
+        public string? FilePath { get =>_filePath; }
+
+        public IO()
+        {
+            if(!File.Exists(FilePath))
+                Directory.CreateDirectory(FilePath);
+        }
     }
 }
