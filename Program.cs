@@ -5,7 +5,6 @@ namespace Quiz
 {
     internal class Program
     {
-        //nextLine = Console.GetCursorPosition().Top+1;
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
@@ -26,11 +25,20 @@ namespace Quiz
             Game.Play();
         }
 
+        // May move this to a different file, like GUI later
+        /// <summary>
+        /// Returns the the next line from top.
+        /// </summary>
+        /// <returns></returns>
         static int NextLine()
         {
             return Console.GetCursorPosition().Top + 1;
         }
 
+        /// <summary>
+        /// Gives the quiz theme the flicker
+        /// </summary>
+        /// <param name="name"></param>
         static private void Theme(string name)
         {
             int height = Console.GetCursorPosition().Top, width = Console.GetCursorPosition().Left;
