@@ -27,5 +27,13 @@ namespace Quiz
                 Directory.CreateDirectory(FilePath);
             }
         }
+
+        public void FileCheck()
+        {
+            if (!File.Exists(Path.Combine(FilePath,FileName)))
+            {
+
+            }
+        }
     }
 }
