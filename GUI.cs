@@ -12,10 +12,15 @@ namespace Quiz
     {
         static public void Print(string text, int height, int width = 15, int pause = 0, ConsoleColor color = ConsoleColor.White)
         {
+            if (height == 0)
+                height = Console.GetCursorPosition().Top + 1;
+
             Console.SetCursorPosition(width, height);
             Console.ForegroundColor = color;
+
             Console.Write(text);
             Console.ForegroundColor = ConsoleColor.White;
+            
             if (pause == 0)
             {
                 Console.ReadKey(true);
@@ -24,7 +29,6 @@ namespace Quiz
             {
                 Thread.Sleep(pause);
             }
-
         }
 
         /// <summary>
@@ -37,6 +41,5 @@ namespace Quiz
             Console.SetCursorPosition(15, 2);
             Console.Write(text);
         }
-
     }
 }

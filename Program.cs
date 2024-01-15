@@ -19,23 +19,15 @@ namespace Quiz
             GUI.Print("Quizzen har 6 spørgsmål.");
             Console.ReadKey(true);
 
-            GUI.Print("Du vælger dit svar ved at trykke A, B, eller C.", NextLine());
-            GUI.Print("Alternativt kan du også bruge 1, 2, eller 3.", NextLine());
-            GUI.Print("Når du er klar, skal du bare trykke noget for at begynde",NextLine());
+            GUI.Print("Du vælger dit svar ved at trykke A, B, eller C.",0);
+            GUI.Print("Alternativt kan du også bruge 1, 2, eller 3.", 0);
+            GUI.Print("Når du er klar, skal du bare trykke noget for at begynde",0);
             Console.ReadKey(true);
             
             Game.Play();
         }
 
-        // May move this to a different file, like GUI later
-        /// <summary>
-        /// Returns the the next line from top.
-        /// </summary>
-        /// <returns></returns>
-        static int NextLine()
-        {
-            return Console.GetCursorPosition().Top + 1;
-        }
+        
 
         /// <summary>
         /// Gives the quiz theme the flicker
