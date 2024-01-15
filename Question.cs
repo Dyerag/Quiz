@@ -14,6 +14,5 @@ namespace Quiz
         public List<string>? Options { get; }
         public string? Answer { get; }
         public string? Explanation { get; }
-
     }
 }
