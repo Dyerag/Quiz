@@ -25,15 +25,33 @@ namespace Quiz
                 Thread.Sleep(4000);
                 //todo notify user that they need to put a file in it. Aswell as what to name the file
                 Directory.CreateDirectory(FilePath);
+
+                GUI.Print("En json fil med spørgsmålene til en quiz, skal lægges i folderen. Filen skal også navn gives " + FileName);
             }
         }
 
-        public void FileCheck()
+        public QuestionList FileCheck()
         {
-            if (!File.Exists(Path.Combine(FilePath,FileName)))
+            while (true)
             {
-
+                if (!File.Exists(Path.Combine(FilePath, FileName)))
+                {
+                    GUI.Print("Filen med spørgsmålene findes ikke");
+                    Thread.Sleep(3000);
+                    GUI.Print("Enten var ingen blevet lagt i, eller også er den ikke navngivet rigtigt", 4000);
+                    GUI.Print("Læg venlist Filen i folderen, inden du fortsætter", 0);
+                }
+                else
+                {
+                    Thread.Sleep(3000);
+                    return FileFetch();
+                }
             }
+        }
+
+        public QuestionList FileFetch()
+        {
+            return new QuestionList();
         }
     }
 }
