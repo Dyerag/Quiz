@@ -15,7 +15,7 @@ namespace Quiz
         private string _filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Quiz");
 
         public string? FilePath { get => _filePath; }
-        public string? FileName { get; }
+        public string? FileName { get; } = "Questions.json";
 
         public IO()
         {
