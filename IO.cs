@@ -8,7 +8,6 @@ namespace Quiz
 {
     public class IO
     {
-        // Todo make an object containing a list of the questions, and the theme
         // This field is technically reduntant, as the code make get the directory,
         // could have either been attached to the property, or put in the constructor.
         private string _filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Questions");
