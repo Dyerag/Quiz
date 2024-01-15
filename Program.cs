@@ -7,6 +7,8 @@ namespace Quiz
     {
         static void Main(string[] args)
         {
+            IO test = new IO();
+            Console.WriteLine(test.FilePath);
             Console.CursorVisible = false;
             GUI.Print("Det her er en Quiz om emnet: ");
             Thread.Sleep(3000);
