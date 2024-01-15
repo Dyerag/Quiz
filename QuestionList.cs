@@ -11,7 +11,7 @@ namespace Quiz
     {
         private int _totalCorrectAnswers = 0;
         public string Theme { get; }
-        public List<Question> Questions;
+        public List<Question> Questions { get; }
         public int TotalCorrectAnswers
         {
             get => _totalCorrectAnswers;
