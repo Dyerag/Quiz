@@ -27,8 +27,6 @@ namespace Quiz
             Game.Play();
         }
 
-        
-
         /// <summary>
         /// Gives the quiz theme the flicker
         /// </summary>
