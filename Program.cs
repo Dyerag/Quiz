@@ -7,9 +7,8 @@ namespace Quiz
     {
         static void Main(string[] args)
         {
-            IO test = new IO();
-            Console.WriteLine(test.FilePath);
             Console.CursorVisible = false;
+            new IO();
             GUI.Print("Det her er en Quiz om emnet: ");
             Thread.Sleep(3000);
             // todo Add the Ability to see what the theme of the questions json file is about
@@ -21,8 +20,7 @@ namespace Quiz
 
             GUI.Print("Du vælger dit svar ved at trykke A, B, eller C.",0);
             GUI.Print("Alternativt kan du også bruge 1, 2, eller 3.", 0);
-            GUI.Print("Når du er klar, skal du bare trykke noget for at begynde",0);
-            Console.ReadKey(true);
+            GUI.Print("Når du er klar, skal du bare trykke noget for at begynde", 0);
             
             Game.Play();
         }

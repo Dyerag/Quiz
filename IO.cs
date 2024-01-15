@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using Quiz;
 
 namespace Quiz
 {
@@ -10,15 +12,18 @@ namespace Quiz
     {
         // This field is technically reduntant, as the code make get the directory,
         // could have either been attached to the property, or put in the constructor.
-        private string _filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Questions");
+        private string _filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Quiz");
 
         public string? FilePath { get => _filePath; }
+        public string? FileName { get; }
 
         public IO()
         {
             if (!File.Exists(FilePath))
             {
-                //todo notify user that the folder has been made, and they need to put a file in it. Aswell as what to name th file
+                GUI.Print($"Quiz folder findes ikke. Skaber folder på {Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}");
+                Thread.Sleep(4000);
+                //todo notify user that they need to put a file in it. Aswell as what to name the file
                 Directory.CreateDirectory(FilePath);
             }
         }

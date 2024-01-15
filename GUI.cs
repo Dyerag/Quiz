@@ -10,7 +10,7 @@ namespace Quiz
 {
     static public class GUI
     {
-        static public void Print(string text, int height, int width = 15, int pause = 0, ConsoleColor color = ConsoleColor.White)
+        static public void Print(string text, int height,  int pause = 0, int width = 15, ConsoleColor color = ConsoleColor.White)
         {
             if (height == 0)
                 height = Console.GetCursorPosition().Top + 1;
