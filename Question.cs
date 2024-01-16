@@ -8,11 +8,11 @@ namespace Quiz
 {
     public class Question
     {
-        public string? Inquery { get; }
-        public string? RightChoice { get; }
-        public string? WrongChoice { get; }
-        public List<string>? Options { get; }
-        public string? Answer { get; }
-        public string? Explanation { get; }
+        public string? Inquery { get; init; }
+        public string? RightChoice { get; init; }
+        public string? WrongChoice { get; init; }
+        public List<string>? Options { get; init;}
+        public string? Answer { get; init; }
+        public string? Explanation { get; init; }
     }
 }

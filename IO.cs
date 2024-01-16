@@ -39,7 +39,7 @@ namespace Quiz
         /// </summary>
         private void FileCheck()
         {
-            for (int i =0;i<5;i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (!File.Exists(Path.Combine(FileDir, FileName)))
                 {
@@ -68,8 +68,8 @@ namespace Quiz
 
             string json = File.ReadAllText(Path.Combine(FileDir, FileName));
             // todo Solve why this line only makes questionlist objects with null values
-            QuestionList quiz = JsonSerializer.Deserialize<QuestionList>(json); //problem is here.
-            return quiz;
+            return JsonSerializer.Deserialize<QuestionList>(json); //problem is here.
+            
         }
     }
 }
