@@ -9,13 +9,8 @@ namespace Quiz
 {
     public class QuestionList
     {
-        private int _totalCorrectAnswers = 0;
         public string Theme { get; }
         public List<Question> Questions { get; }
-        public int TotalCorrectAnswers
-        {
-            get => _totalCorrectAnswers;
-            set => _totalCorrectAnswers++;
-        }
+        public int TotalCorrectAnswers { get; set; } = 0;
     }
 }
