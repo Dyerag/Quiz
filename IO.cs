@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -22,14 +23,14 @@ namespace Quiz
 
         public IO()
         {
-            if (!File.Exists(FileDir))
+            if (!Directory.Exists(FileDir))
             {
                 GUI.Print($"Quiz folder findes ikke. Skaber folder på {FileDir}");
                 Thread.Sleep(4000);
                 Directory.CreateDirectory(FileDir);
 
                 GUI.Print("En json fil med spørgsmålene til quizzen, skal lægges i folderen.");
-                    GUI.Print("Filen skal også navn gives " + FileName,0,0);
+                GUI.Print("Filen skal også navngives " + FileName, 0, 0);
             }
         }
 
@@ -38,15 +39,15 @@ namespace Quiz
         /// </summary>
         private void FileCheck()
         {
-            while (true)
+            for (int i =0;i<5;i++)
             {
                 if (!File.Exists(Path.Combine(FileDir, FileName)))
                 {
                     GUI.Print("Filen med spørgsmålene findes ikke.");
                     Thread.Sleep(3000);
-                    GUI.Print("Enten var ingen blevet lagt i folderen, eller også er den ikke navngivet rigtigt.", 0,4000);
-                    GUI.Print("Læg venlist Filen i folderen, inden du fortsætter.", 0,3000);
-                    GUI.Print($"Husk at filen skal kaldes \"{FileName}\"",0,0);
+                    GUI.Print("Enten var ingen blevet lagt i folderen, eller også er den ikke navngivet rigtigt.", 0, 4000);
+                    GUI.Print("Læg venlist Filen i folderen, inden du fortsætter.", 0, 3000);
+                    GUI.Print($"Husk at filen skal kaldes \"{FileName}\"", 0, 0);
                 }
                 else
                 {
@@ -66,7 +67,8 @@ namespace Quiz
             FileCheck();
 
             string json = File.ReadAllText(Path.Combine(FileDir, FileName));
-            QuestionList quiz = JsonSerializer.Deserialize<QuestionList>(json);
+            // todo Solve why this line only makes questionlist objects with null values
+            QuestionList quiz = JsonSerializer.Deserialize<QuestionList>(json); //problem is here.
             return quiz;
         }
     }
