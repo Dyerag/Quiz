@@ -7,6 +7,7 @@ namespace Quiz
     {
         static void Main(string[] args)
         {
+            #region intro
             Console.CursorVisible = false;
             new IO();
             GUI.Print("Det her er en Quiz om emnet: ");
@@ -21,7 +22,7 @@ namespace Quiz
             GUI.Print("Du vælger dit svar ved at trykke A, B, eller C.",0);
             GUI.Print("Alternativt kan du også bruge 1, 2, eller 3.", 0);
             GUI.Print("Når du er klar, skal du bare trykke noget for at begynde", 0);
-            
+            #endregion
             Game.Play();
         }
 

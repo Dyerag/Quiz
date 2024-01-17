@@ -14,11 +14,11 @@ namespace Quiz
 {
     public class IO
     {
-        // This field is technically reduntant, as the code make get the directory,
-        // could have either been attached to the property, or put in the constructor.
-        private string _fileDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Quiz");
+        // This field is technically reduntant, as the code for the directory could have either been attached to the property,
+        // or put in the constructor, But i'll leave it here anyway
+        private string fileDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Quiz");
 
-        public string FileDir { get => _fileDir; }
+        public string FileDir { get => fileDir; }
         public string FileName { get; } = "Questions.json";
 
         public IO()
