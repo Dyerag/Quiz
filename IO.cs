@@ -19,6 +19,8 @@ namespace Quiz
         private string fileDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Quiz");
 
         public string FileDir { get => fileDir; }
+        // todo maybe let the program grab any json file in the folder, instead of having to give it a dedicated name
+        // todo have the program check if the file is valid for the quiz
         public string FileName { get; } = "Questions.json";
 
         public IO()
@@ -68,8 +70,7 @@ namespace Quiz
             FileCheck();
 
             string json = File.ReadAllText(Path.Combine(FileDir, FileName));
-            // todo Solve why this line only makes questionlist objects with null values
-            return JsonSerializer.Deserialize<QuestionList>(json); //problem is here.
+            return JsonSerializer.Deserialize<QuestionList>(json); 
             
         }
     }

@@ -9,6 +9,8 @@ namespace Quiz
         {
             #region intro
             Console.CursorVisible = false;
+
+            //todo move som of the prints here, to the constructor in game
             new IO();
             GUI.Print("Det her er en Quiz om emnet: ");
             Thread.Sleep(3000);
