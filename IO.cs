@@ -30,6 +30,7 @@ namespace Quiz
                 Directory.CreateDirectory(FileDir);
 
                 GUI.Print("En json fil med spørgsmålene til quizzen, skal lægges i folderen.");
+                Thread.Sleep(2000);
                 GUI.Print("Filen skal også navngives " + FileName, 0, 0);
             }
         }
