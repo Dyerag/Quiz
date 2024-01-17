@@ -59,7 +59,5 @@ namespace Quiz
                 GUI.Print(name, height, width, 100, ConsoleColor.Yellow);
             }
         }
-
-
     }
 }
