@@ -12,19 +12,18 @@ namespace Quiz
     /// </summary>
     public class Game
     {
-        public QuestionList GameQuestions { get; set; }
+        public QuestionList Questions { get; set; }
         public Game()
         {
             IO setup = new();
-            GameQuestions = setup.FileFetch();
+            Questions = setup.FileFetch();
             var text = setup.FileFetch();
             Console.WriteLine(text);
-            Program.Intro(GameQuestions);
+            Program.Intro(Questions);
             Play();
 
         }
         
-        // Todo have the constructor setup the questionlist object
         static public void Play()
         {
 

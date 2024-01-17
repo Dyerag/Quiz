@@ -36,7 +36,7 @@ namespace Quiz
                 GUI.Print("Filen skal også navngives " + FileName, 0, 0);
             }
         }
-
+        //Todo allow the program to randomly choose with json file to use when theres multiple in the folder
         /// <summary>
         /// Checks if the json file exists
         /// </summary>

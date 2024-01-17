@@ -10,7 +10,6 @@ namespace Quiz
             #region Pre amble
             Console.CursorVisible = false;
 
-            //todo move som of the prints here, to the constructor in game
             GUI.Print("Det her Quiz program får alle spørgsmålene og svarende,");
             Thread.Sleep(2000);
             GUI.Print("ved at indlæse json filer der lægges i den givne folder.", 0, 2000);
@@ -35,13 +34,13 @@ namespace Quiz
         /// <summary>
         /// Tells the users the Theme and number of questions
         /// </summary>
-        public static void Intro(QuestionList gameQuestions)
+        public static void Intro(QuestionList Questions)
         {
             GUI.Print("Det her er en Quiz om emnet: ");
             Thread.Sleep(3000);
-            Theme(gameQuestions.Theme);
+            Theme(Questions.Theme);
 
-            GUI.Print($"Quizzen har {gameQuestions.Questions.Count} spørgsmål.", 0, 3000);
+            GUI.Print($"Quizzen har {Questions.Questions.Count} spørgsmål.", 0, 3000);
             GUI.Print("Klar?", 0);
         }
 
