@@ -17,18 +17,29 @@ namespace Quiz
         {
             IO setup = new();
             Questions = setup.FileFetch();
-            var text = setup.FileFetch();
-            Console.WriteLine(text);
+
             Program.Intro(Questions);
             Play();
 
         }
-        
-        static public void Play()
+
+        public void Play()
+        {
+            int questionNumber = 1;
+
+            //do
+            //{
+               foreach(Question item in Questions.Questions) 
+
+                GUI.Print(/*"Spørgsmål #" +*/item.Ask,0,200 );
+
+            //} while (Questions.QuestionOrder.Count > 0);
+        }
+
+        private void Transition()
         {
 
         }
-        
 
     }
 }

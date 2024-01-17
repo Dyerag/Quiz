@@ -10,7 +10,7 @@ namespace Quiz
             #region Pre amble
             Console.CursorVisible = false;
 
-            GUI.Print("Det her Quiz program får alle spørgsmålene og svarende,");
+            GUI.Print("Den her Quiz får alle spørgsmålene og svarende,");
             Thread.Sleep(2000);
             GUI.Print("ved at indlæse json filer der lægges i den givne folder.", 0, 2000);
             GUI.Print("Hvis du gerne vil bruge en anden quiz i dette program,", 0, 2000);
@@ -54,8 +54,8 @@ namespace Quiz
 
             for (int i = 0; i < 15; i++)
             {
-                GUI.Print(name, height, width, 100, ConsoleColor.Red);
-                GUI.Print(name, height, width, 100, ConsoleColor.Yellow);
+                GUI.Print(name, height, 100, width, ConsoleColor.Red);
+                GUI.Print(name, height, 100, width, ConsoleColor.Yellow);
             }
         }
     }
