@@ -7,40 +7,25 @@ namespace Quiz
     {
         static void Main(string[] args)
         {
-            #region intro
+            #region Pre amble
             Console.CursorVisible = false;
 
             //todo move som of the prints here, to the constructor in game
-            new IO();
-            GUI.Print("Det her er en Quiz om emnet: ");
-            Thread.Sleep(3000);
-            // todo Add the Ability to see what the theme of the questions json file is about
-            Theme("Vandforbrug!");
+            GUI.Print("Det her Quiz program får alle spørgsmålene og svarende,");
+            Thread.Sleep(2000);
+            GUI.Print("ved at indlæse json filen der lægges i den givne folder.",0,2000);
+            GUI.Print("Hvis du gerne vil bruge en anden quiz i dette program,", 0, 2000);
+            GUI.Print("skal du bare erstatte json filen i folderen, med den nye quiz.",0,2000);
+            GUI.Print("Også i json format, og opsat på samme måde", 0);
+            #endregion
 
-            // todo Add the ability to see how many questions there are
-            GUI.Print("Quizzen har 6 spørgsmål.");
-            Console.ReadKey(true);
-
+            #region How to play
             GUI.Print("Du vælger dit svar ved at trykke A, B, eller C.",0);
             GUI.Print("Alternativt kan du også bruge 1, 2, eller 3.", 0);
             GUI.Print("Når du er klar, skal du bare trykke noget for at begynde", 0);
             #endregion
+
             Game.Play();
-        }
-
-        /// <summary>
-        /// Gives the quiz theme the flicker
-        /// </summary>
-        /// <param name="name"></param>
-        static private void Theme(string name)
-        {
-            int height = Console.GetCursorPosition().Top, width = Console.GetCursorPosition().Left;
-
-            for (int i = 0; i < 15; i++)
-            {
-                GUI.Print(name, height, width, 100, ConsoleColor.Red);
-                GUI.Print(name, height, width, 100, ConsoleColor.Yellow);
-            }
         }
     }
 }

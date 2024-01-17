@@ -50,7 +50,8 @@ namespace Quiz
                     Thread.Sleep(3000);
                     GUI.Print("Enten var ingen blevet lagt i folderen, eller også er den ikke navngivet rigtigt.", 0, 4000);
                     GUI.Print("Læg venlist Filen i folderen, inden du fortsætter.", 0, 3000);
-                    GUI.Print($"Husk at filen skal kaldes \"{FileName}\"", 0, 0);
+                    GUI.Print($"Husk at filen skal kaldes \"{FileName}\",", 0, 0);
+                    GUI.Print($"og ligger i {fileDir}", 0, 0);
                 }
                 else
                 {
