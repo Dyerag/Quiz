@@ -13,6 +13,5 @@ namespace Quiz
         public string Theme { get; init; }
         public List<Question> Questions { get; init; }
         public int TotalCorrectAnswers { get; set; } = 0;
-
     }
 }

@@ -8,7 +8,7 @@ namespace Quiz
 {
     public class Question
     {
-        public string? Inquery { get; init; }
+        public string? Ask { get; init; }
         public string? RightChoice { get; init; }
         public string? WrongChoice { get; init; }
         public List<string>? Options { get; init;}
