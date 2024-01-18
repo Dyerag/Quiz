@@ -7,7 +7,7 @@ namespace Quiz
     {
         static void Main(string[] args)
         {
-            #region Pre amble
+            #region Preamble
             Console.CursorVisible = false;
 
             GUI.Print("Den her Quiz får alle spørgsmålene og svarende,");

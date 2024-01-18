@@ -10,32 +10,34 @@ namespace Quiz
 {
     public class QuestionList
     {
+        private List<Question> _questions;
         public string Theme { get; init; }
-        // Init body causes the program, and even visual studio to essentially crash. Technically it freezes, with a bunch of data in the window, bit ot lasted a couple minutes
-        public List<Question> Questions { get { return Questions; } init { Questions=SetOrder(value); } } 
-        //public Queue<Question> QuestionOrder { get; set; }
-        public int TotalCorrectAnswers { get; set; } = 0;
-
-        public List<Question> SetOrder(List<Question> amount)
+        public List<Question> Questions
         {
-            Random rnd = new Random();
-            List<int> Picked = new();
-            List<Question> order = new();
+            get => _questions;
 
-            while (order.Count < amount.Count)
+            // Randomizes the order of questions before initiating it
+            init
             {
-                int num = 0;
+                Random rnd = new Random();
+                List<int> Picked = new();
+                List<Question> order = new();
 
-                do
+                while (order.Count < value.Count)
                 {
-                    num = rnd.Next(0, amount.Count);
-                } while (Picked.Contains(num));
+                    int num = 0;
 
-                Picked.Add(num);
-                order.Add(amount[num]);
+                    do
+                    {
+                        num = rnd.Next(0, value.Count);
+                    } while (Picked.Contains(num));
+
+                    Picked.Add(num);
+                    order.Add(value[num]);
+                }
+                _questions = order;
             }
-
-            return order;
         }
+        public int TotalCorrectAnswers { get; set; } = 0;
     }
 }
