@@ -9,6 +9,7 @@ namespace Quiz
         {
             #region Preamble
             Console.CursorVisible = false;
+            ConsoleKey choice;
 
             GUI.Print("Den her Quiz får alle spørgsmålene og svarende,");
             Thread.Sleep(2000);
@@ -28,7 +29,13 @@ namespace Quiz
             do
             {
                 new Game();
-            } while (true);
+                GUI.Print("Spil igen?");
+                GUI.Print("J/N",0,1);
+
+                do
+                    choice = Console.ReadKey(true).Key;
+                while (choice != ConsoleKey.J && choice != ConsoleKey.N);
+            } while (choice == ConsoleKey.J);
         }
 
         /// <summary>

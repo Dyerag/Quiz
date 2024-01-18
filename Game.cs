@@ -13,6 +13,7 @@ namespace Quiz
     public class Game
     {
         public QuestionList Questions { get; set; }
+
         public Game()
         {
             IO setup = new();
@@ -20,20 +21,18 @@ namespace Quiz
 
             Program.Intro(Questions);
             Play();
-
         }
 
         public void Play()
         {
             int questionNumber = 1;
 
-            //do
-            //{
-               foreach(Question item in Questions.Questions) 
+            foreach (Question item in Questions.Questions)
+            {
+                
 
-                GUI.Print(/*"Spørgsmål #" +*/item.Ask,0,200 );
+            }
 
-            //} while (Questions.QuestionOrder.Count > 0);
         }
 
         private void Transition()
