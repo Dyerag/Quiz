@@ -25,20 +25,39 @@ namespace Quiz
 
         public void Play()
         {
-            int questionNumber = 1;
+            int questionNumber = 0;
+            "".Print();
+            int top = Console.GetCursorPosition().Top;
 
             foreach (Question item in Questions.Questions)
             {
-                
+                GUI.Print(questionNumber + 1.ToString() + "/" + Questions.Questions.Count.ToString(), top);
+                item.Ask.Print(0);
 
+                int input = 0;
+                foreach (string option in item.Options)
+                    $"{input+1}. {option}".Print(0);
+
+                top = Transition();
             }
 
         }
 
-        private void Transition()
+        private int Transition()
         {
+            int Line = Console.GetCursorPosition().Top + 2;
+            Console.BackgroundColor = ConsoleColor.White;
 
+            Console.SetCursorPosition(0, Line);
+            for (int i = 0; i < Console.WindowWidth; i++)
+            {
+                Console.Write(" ");
+            }
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            Line = +2;
+
+            return Line;
         }
-
     }
 }

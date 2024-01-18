@@ -20,9 +20,8 @@ namespace Quiz
             #endregion
 
             #region How to play
-            GUI.Print("Du vælger dit svar ved at trykke A, B, eller C.");
+            GUI.Print("Du vælger dit svar ved at trykke 1, 2, eller 3.");
             Thread.Sleep(2000);
-            GUI.Print("Alternativt kan du også bruge 1, 2, eller 3.", 0, 2000);
             GUI.Print("Når du er klar, skal du bare trykke noget for at begynde", 0);
             #endregion
 
