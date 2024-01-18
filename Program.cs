@@ -27,7 +27,7 @@ namespace Quiz
 
             do
             {
-                new Game();
+                _ = new Game();
             } while (true);
         }
 

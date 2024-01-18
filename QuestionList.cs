@@ -17,13 +17,13 @@ namespace Quiz
 
         public void SetOrder()
         {
-            Random rnd = new Random();
+            Random rnd = new();
             List<int> Picked = new();
             Queue<Question> order = new();
 
             while (order.Count != this.Questions.Count)
             {
-                int num = 0;
+                int num;
 
                 do
                 {
