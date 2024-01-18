@@ -16,12 +16,11 @@ namespace Quiz
     {
         // This field is technically reduntant, as the code for the directory could have either been attached to the property,
         // or put in the constructor, But i'll leave it here anyway
-        private string fileDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Quiz");
+        private string _fileDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Quiz");
 
-        public string FileDir { get => fileDir; }
+        public string FileDir { get => _fileDir; }
         // todo maybe let the program grab any json file in the folder, instead of having to give it a dedicated name
         // todo have the program check if the file is valid for the quiz
-        public string FileName { get; } = "Questions.json";
 
         public IO()
         {
@@ -42,21 +41,22 @@ namespace Quiz
         /// </summary>
         private void FileCheck()
         {
+
             for (int i = 0; i < 5; i++)
             {
-                if (!File.Exists(Path.Combine(FileDir, FileName)))
+                List<string> Files = new(Directory.GetFiles(FileDir));
+                if (Files.Count == 0)
                 {
                     GUI.Print("Filen med spørgsmålene findes ikke.");
                     Thread.Sleep(3000);
                     GUI.Print("Enten var ingen blevet lagt i folderen, eller også er den ikke navngivet rigtigt.", 0, 4000);
                     GUI.Print("Læg venlist Filen i folderen, inden du fortsætter.", 0, 3000);
-                    GUI.Print($"Husk at filen skal kaldes \"{FileName}\",", 0, 0);
-                    GUI.Print($"og ligger i {fileDir}", 0, 0);
+                    GUI.Print($"og ligger i {_fileDir}", 0, 0);
                 }
                 else
                 {
                     GUI.Print("Henter Spørgsmålene");
-                    Thread.Sleep(3000);
+                    Thread.Sleep(2000);
                     return;
                 }
             }
@@ -70,9 +70,9 @@ namespace Quiz
         {
             FileCheck();
 
-            string json = File.ReadAllText(Path.Combine(FileDir, FileName));
-            return JsonSerializer.Deserialize<QuestionList>(json); 
-            
+            string json = File.ReadAllText(FileDir);
+            return JsonSerializer.Deserialize<QuestionList>(json);
+
         }
     }
 }
