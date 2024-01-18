@@ -10,8 +10,10 @@ namespace Quiz
 {
     public class QuestionList
     {
-        private List<Question> _questions;
+        private List<Question> _questions = new();
+
         public string Theme { get; init; }
+        public int TotalCorrectAnswers { get; set; } = 0;
         public List<Question> Questions
         {
             get => _questions;
@@ -38,6 +40,6 @@ namespace Quiz
                 _questions = order;
             }
         }
-        public int TotalCorrectAnswers { get; set; } = 0;
+       
     }
 }
