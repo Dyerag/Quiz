@@ -18,6 +18,7 @@ namespace Quiz
         {
             IO setup = new();
             Questions = setup.FileFetch();
+            
 
             Program.Intro(Questions);
             Play();
@@ -34,16 +35,24 @@ namespace Quiz
                 GUI.Print(questionNumber + 1.ToString() + "/" + Questions.Questions.Count.ToString(), top);
                 item.Ask.Print(0);
 
-                int input = 0;
+                int choice = 0;
                 foreach (string option in item.Options)
-                    $"{input+1}. {option}".Print(0);
+                    $"{choice+1}. {option}".Print(0);
+
+                switch (Console.ReadKey().Key)
+                {
+                    case ConsoleKey.D1:
+                    case ConsoleKey.NumPad1:
+
+                        break;
+                }
 
                 top = Transition();
             }
 
         }
 
-        private int Transition()
+        private static int Transition()
         {
             int Line = Console.GetCursorPosition().Top + 2;
             Console.BackgroundColor = ConsoleColor.White;
