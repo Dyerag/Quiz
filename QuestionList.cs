@@ -10,31 +10,36 @@ namespace Quiz
 {
     public class QuestionList
     {
+        private List<Question> _questions = new();
+
         public string Theme { get; init; }
-        public List<Question> Questions { get; init; }
-        public Queue<Question> QuestionOrder { get; set; }
         public int TotalCorrectAnswers { get; set; } = 0;
-
-        public void SetOrder()
+        public List<Question> Questions
         {
-            Random rnd = new();
-            List<int> Picked = new();
-            Queue<Question> order = new();
+            get => _questions;
 
-            while (order.Count != this.Questions.Count)
+            // Randomizes the order of questions before initiating it
+            init
             {
-                int num;
+                Random rnd = new Random();
+                List<int> Picked = new();
+                List<Question> order = new();
 
-                do
+                while (order.Count < value.Count)
                 {
-                    num = rnd.Next(0, Questions.Count);
-                } while (Picked.Contains(num));
+                    int num = 0;
 
-                Picked.Add(num);
-                order.Enqueue(Questions[num]);
+                    do
+                    {
+                        num = rnd.Next(0, value.Count);
+                    } while (Picked.Contains(num));
+
+                    Picked.Add(num);
+                    order.Add(value[num]);
+                }
+                _questions = order;
             }
-
-            QuestionOrder = order;
         }
+       
     }
 }
