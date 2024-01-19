@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,18 +19,19 @@ namespace Quiz
         {
             IO setup = new();
             Questions = setup.FileFetch();
-            
+
             Program.Intro(Questions);
             Play();
         }
 
         public void Play()
         {
+            #region Premade variables
             int questionNumber = 1;
             "".Print();
             int top = Console.GetCursorPosition().Top;
             string playerAnswer = string.Empty;
-
+            #endregion
             foreach (Question inqury in Questions.Questions)
             {
                 GUI.Print(questionNumber++.ToString() + "/" + Questions.Questions.Count.ToString(), top, 1);
@@ -44,9 +46,9 @@ namespace Quiz
 
                 do
                     switch (Console.ReadKey(true).Key)
-                {
-                    case ConsoleKey.D1:
-                    case ConsoleKey.NumPad1:
+                    {
+                        case ConsoleKey.D1:
+                        case ConsoleKey.NumPad1:
                             playerAnswer = inqury.Options[0];
                             break;
 
@@ -62,8 +64,8 @@ namespace Quiz
 
                         default:
                             playerAnswer = string.Empty;
-                        break;
-                }
+                            break;
+                    }
                 while (playerAnswer == string.Empty);
 
                 if (playerAnswer == inqury.Answer)
@@ -81,7 +83,7 @@ namespace Quiz
 
                 top = Console.GetCursorPosition().Top + 2;
             }
-
+            Finish();
         }
 
         /// <summary>
@@ -110,7 +112,6 @@ namespace Quiz
         private static void Transition()
         {
             int Line = Console.GetCursorPosition().Top + 2;
-            Console.BackgroundColor = ConsoleColor.White;
 
             Console.SetCursorPosition(0, Line);
             for (int i = 0; i < Console.WindowWidth; i++)
@@ -121,7 +122,11 @@ namespace Quiz
             return;
         }
 
-            return Line;
+        private void Finish()
+        {
+            "Tillyke!".Print(Console.GetCursorPosition().Top+2,1000);
+            $"Du svarede {Questions.TotalCorrectAnswers} ud af {Questions.Questions.Count} spørgsmål rigtigt.".Print(0);
+            "Tak fordi du spillede".Print(0);
         }
     }
 }
