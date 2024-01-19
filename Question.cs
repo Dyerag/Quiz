@@ -15,7 +15,7 @@ namespace Quiz
         public string? WrongChoice { get; init; }
         public string? Answer { get; init; }
         public string? Explanation { get; init; }
-        public List<string>? Options
+        public List<string> Options
         {
             get => _options;
             init

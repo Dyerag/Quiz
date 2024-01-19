@@ -26,18 +26,21 @@ namespace Quiz
 
         public void Play()
         {
-            int questionNumber = 0;
+            int questionNumber = 1;
             "".Print();
             int top = Console.GetCursorPosition().Top;
 
-            foreach (Question item in Questions.Questions)
+            foreach (Question inqury in Questions.Questions)
             {
-                GUI.Print(questionNumber + 1.ToString() + "/" + Questions.Questions.Count.ToString(), top);
-                item.Ask.Print(0);
+                GUI.Print(questionNumber++.ToString() + "/" + Questions.Questions.Count.ToString(), top, 1);
+                inqury.Ask.Print(0, 3000);
 
-                int choice = 0;
-                foreach (string option in item.Options)
-                    $"{choice+1}. {option}".Print(0);
+                int choice = 1;
+                foreach (string option in inqury.Options)
+                {
+                    $"{choice}. {option}".Print(Console.GetCursorPosition().Top + 2, 500);
+                    choice++;
+                }
 
                 switch (Console.ReadKey().Key)
                 {
