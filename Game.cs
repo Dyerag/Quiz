@@ -19,7 +19,6 @@ namespace Quiz
             IO setup = new();
             Questions = setup.FileFetch();
             
-
             Program.Intro(Questions);
             Play();
         }
@@ -29,6 +28,7 @@ namespace Quiz
             int questionNumber = 1;
             "".Print();
             int top = Console.GetCursorPosition().Top;
+            string playerAnswer = string.Empty;
 
             foreach (Question inqury in Questions.Questions)
             {
@@ -42,20 +42,72 @@ namespace Quiz
                     choice++;
                 }
 
-                switch (Console.ReadKey().Key)
+                do
+                    switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.D1:
                     case ConsoleKey.NumPad1:
+                            playerAnswer = inqury.Options[0];
+                            break;
 
+                        case ConsoleKey.D2:
+                        case ConsoleKey.NumPad2:
+                            playerAnswer = inqury.Options[1];
+                            break;
+
+                        case ConsoleKey.D3:
+                        case ConsoleKey.NumPad3:
+                            playerAnswer = inqury.Options[2];
+                            break;
+
+                        default:
+                            playerAnswer = string.Empty;
                         break;
                 }
+                while (playerAnswer == string.Empty);
 
-                top = Transition();
+                if (playerAnswer == inqury.Answer)
+                {
+                    inqury.RightChoice.Print(Console.GetCursorPosition().Top + 2, 1000);
+                    Questions.TotalCorrectAnswers++;
+                }
+                else
+                    inqury.WrongChoice.Print(Console.GetCursorPosition().Top + 2, 1000);
+
+
+                Explanation(inqury.Explanation);
+                Console.ReadKey(true);
+                Transition();
+
+                top = Console.GetCursorPosition().Top + 2;
             }
 
         }
 
-        private static int Transition()
+        /// <summary>
+        /// Writes the explanation if a question so it fits in the window.
+        /// </summary>
+        /// <param name="explain"></param>
+        private void Explanation(string explain)
+        {
+            //17 words
+            int top = Console.GetCursorPosition().Top + 2;
+            Queue<string> splitexplanation = new(explain.Split(' '));
+            while (splitexplanation.Count > 0)
+            {
+                GUI.Print(splitexplanation.Dequeue() + " ", top, 1);
+                for (int i = 0; i < 10 && splitexplanation.Count > 0; i++)
+                    GUI.Print(splitexplanation.Dequeue() + " ", top, 1, Console.GetCursorPosition().Left);
+
+                top++;
+            }
+        }
+
+        /// <summary>
+        /// Makes a clear indication of the split between two questions
+        /// </summary>
+        /// <returns></returns>
+        private static void Transition()
         {
             int Line = Console.GetCursorPosition().Top + 2;
             Console.BackgroundColor = ConsoleColor.White;
@@ -63,11 +115,11 @@ namespace Quiz
             Console.SetCursorPosition(0, Line);
             for (int i = 0; i < Console.WindowWidth; i++)
             {
-                Console.Write(" ");
+                Console.Write("-");
             }
 
-            Console.BackgroundColor = ConsoleColor.Black;
-            Line = +2;
+            return;
+        }
 
             return Line;
         }
