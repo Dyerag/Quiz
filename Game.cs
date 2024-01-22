@@ -35,7 +35,7 @@ namespace Quiz
             foreach (Question inqury in Questions.Questions)
             {
                 GUI.Print(questionNumber++.ToString() + "/" + Questions.Questions.Count.ToString(), top, 1);
-                inqury.Ask.Print(0, 3000);
+                PlayText(inqury.Ask,1);
 
                 int choice = 1;
                 foreach (string option in inqury.Options)
@@ -77,7 +77,7 @@ namespace Quiz
                     inqury.WrongChoice.Print(Console.GetCursorPosition().Top + 2, 1000);
 
 
-                Explanation(inqury.Explanation);
+                PlayText(inqury.Explanation);
                 Console.ReadKey(true);
                 Transition();
 
@@ -90,10 +90,10 @@ namespace Quiz
         /// Writes the explanation if a question so it fits in the window.
         /// </summary>
         /// <param name="explain"></param>
-        private void Explanation(string explain)
+        private void PlayText(string explain,int nextLine=2)
         {
             //17 words
-            int top = Console.GetCursorPosition().Top + 2;
+            int top = Console.GetCursorPosition().Top+nextLine;
             Queue<string> splitexplanation = new(explain.Split(' '));
             while (splitexplanation.Count > 0)
             {
