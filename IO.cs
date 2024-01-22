@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Principal;
 using System.Text;
 using System.Text.Json;
@@ -32,33 +33,6 @@ namespace Quiz
 
                 GUI.Print("En json fil med spørgsmålene til quizzen, skal lægges i folderen.");
                 Thread.Sleep(2000);
-                GUI.Print("Filen skal også navngives " + FileName, 0, 0);
-            }
-        }
-        //Todo allow the program to randomly choose with json file to use when theres multiple in the folder
-        /// <summary>
-        /// Checks if the json file exists
-        /// </summary>
-        private void FileCheck()
-        {
-
-            for (int i = 0; i < 5; i++)
-            {
-                List<string> Files = new(Directory.GetFiles(FileDir));
-                if (Files.Count == 0)
-                {
-                    GUI.Print("Filen med spørgsmålene findes ikke.");
-                    Thread.Sleep(3000);
-                    GUI.Print("Enten var ingen blevet lagt i folderen, eller også er den ikke navngivet rigtigt.", 0, 4000);
-                    GUI.Print("Læg venlist Filen i folderen, inden du fortsætter.", 0, 3000);
-                    GUI.Print($"og ligger i {_fileDir}", 0, 0);
-                }
-                else
-                {
-                    GUI.Print("Henter Spørgsmålene");
-                    Thread.Sleep(2000);
-                    return;
-                }
             }
         }
 
@@ -70,9 +44,58 @@ namespace Quiz
         {
             FileCheck();
 
-            string json = File.ReadAllText(FileDir);
+            string json = File.ReadAllText(FileChoose());
             return JsonSerializer.Deserialize<QuestionList>(json);
+        }
 
+        /// <summary>
+        /// Checks if the json file exists
+        /// </summary>
+        private void FileCheck()
+        {
+
+            for (int i = 0; i < 5; i++)
+            {
+                List<string> Files = new(Directory.GetFiles(FileDir));
+                //just to check wether its the second time it's trying to find the files
+                bool check = false;
+                if (Files.Count == 0)
+                {
+                    GUI.Print("Spørgsmålene findes ikke i folderen.");
+                    Thread.Sleep(2000);
+                    GUI.Print("Enten var ingen blevet lagt i, eller .", 0, 2000);
+                    GUI.Print("Læg venlist Filen i folderen, inden du fortsætter.", 0, 2000);
+                    GUI.Print($"den ligger i {_fileDir}", 0, 0);
+
+                    check = true;
+                }
+                else
+                {
+                    if (check)
+                    {
+                        GUI.Print("Henter Spørgsmålene");
+                        Thread.Sleep(2000);
+                    }
+                    
+                    return;
+                }
+            }
+
+            GUI.Print("Det ser ud til at noget er galt. programmet bliver derfor lukket");
+            Environment.Exit(0);
+        }
+
+        //Todo allow the program to randomly choose with json file to use when theres multiple in the folder
+        /// <summary>
+        /// Randomly chooses the quiz
+        /// </summary>
+        /// <returns></returns>
+        private string FileChoose()
+        {
+            Random rnd = new();
+            List<string> files = new(Directory.GetFiles(FileDir));
+
+            return files[rnd.Next(0,files.Count)];
         }
     }
 }
