@@ -17,7 +17,7 @@ namespace Quiz
     {
         // This field is technically reduntant, as the code for the directory could have either been attached to the property,
         // or put in the constructor, But i'll leave it here anyway
-        private string _fileDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Quiz");
+        private string _fileDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Quiz spørgsmål");
 
         public string FileDir { get => _fileDir; }
         // todo maybe let the program grab any json file in the folder, instead of having to give it a dedicated name
