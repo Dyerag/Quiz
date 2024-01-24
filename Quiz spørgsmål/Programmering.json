@@ -1,0 +1,125 @@
+{
+    "Theme": "Programmering",
+    "Questions": [
+        {
+            "Ask": "Hvad står OOP for?",
+            "Options": [
+                "Object Orionted Programming",
+                "Order Of Operation",
+                "Out of Operating Parameters"
+            ],
+            "RightChoice": "Correctamundo",
+            "WrongChoice": "Niks",
+            "Answer": "Object Orionted Programming",
+            "Explanation": "Object Orienteret programmering, eller OOP, er en måde at designe softerware på, hvori alt er bygge i form af metoder og objekter. Objekter er klasser som kan indeholde deres egen data i form a fields, og metoder som indeholder procedure der køres, når den bliver kaldt."
+        },
+        {
+            "Ask": "Hvad gør Static keywordet?",
+            "Options": [
+                "Der findes kun 1 instans af hvad end der har keywordet. Og alle instancer af klassen, peger mod den",
+                "Hvad end der er markeret som static er immutable, og kan ikke ændres",
+                "Static lader programmet bruge den statiske kode udenfor klassen den findes i"
+            ],
+            "RightChoice": "Correctamundo",
+            "WrongChoice": "Niks",
+            "Answer": "Der findes kun 1 instans af hvad end der har keywordet. Og alle instancer af klassen, peger mod den",
+            "Explanation": "Udover at der kun findes en instans, som alle andre objecter af den givne klassen peger på. Findes den statiske metode, property, og field altid. Metoder, fields, og properties kan derfor altid tilgås uden brugen af en instans."
+        },
+        {
+            "Ask": "Hvad hedder det når en variable er lavet?",
+            "Options": [
+                "Declare",
+                "Instantiate",
+                "initialize"
+            ],
+            "RightChoice": "Correctamundo",
+            "WrongChoice": "Niks",
+            "Answer": "Declare",
+            "Explanation": "At skabe en variabel er at deklarere (declare) den. Den første gang den får givet en variabel, F.eks samtidigt med at blive deklareret, bliver den initialiseret (initialized). Når et klasseobjekt bliver skabt, bliver den instantieret (instantiate)."
+        },
+        {
+            "Ask": "Hvad sker der når et program får en runtime error?",
+            "Options": [
+                "Den kaster en exception",
+                "Den sender en Error",
+                "Den kører fejlhåntering"
+            ],
+            "RightChoice": "Correctamundo",
+            "WrongChoice": "Niks",
+            "Answer": "Den kaster en exception",
+            "Explanation": "Når et program løber ind i noget den ikke kan gøre som f.eks at lægge en string i en integer, brugen af et indeks i en liste/array uden for dens grænser, eller bruger mere ram end der er tilgængeligt. Kastes exception, der fortæller hvilken type fejl det er. I en try-catch struktur, ville den gå ned i catch og kører hvad end der er dernede."
+        },
+        {
+            "Ask": "I en Try-catch struktur. Hvad hedder den tredje, valgfrie del?",
+            "Options": [
+                "Finally",
+                "Finish",
+                "Finale"
+            ],
+            "RightChoice": "Correctamundo",
+            "WrongChoice": "Niks",
+            "Answer": "Finally",
+            "Explanation": "Catch blokken bliver kun kørt, hvis der sker en fejl i try. I hvilket tilfælde bliver resten af try sprunget over. Hvis noget skal køres uanset hvad, er det bedst at lægge det i finally, i stedet for i både try og catch. Da finally altid bliver kørt efter try/catch blokken. Det er også garanteret at blive kørt hvis try eller catch bliver forladt. Som for eksempelvis igennem en return statement."
+        },
+        {
+            "Ask": "Hvad står DRY for?",
+            "Options": [
+                "Don't repeat yourself",
+                "Do remember to yatter",
+                "Don't rewrite in yottabyte"
+            ],
+            "RightChoice": "Correctamundo",
+            "WrongChoice": "Niks",
+            "Answer": "Don't repeat yourself",
+            "Explanation": "DRY står for \"Don't repeat yourself\", og står for at man ikke skal skrive linjer af kode, som har et specifik formål mere end én gang. Princippet er bygget på brugen af normalisering, abstraktion, metoder osv. til at undgå repetition i koden. For eksempel; hvis et program skulle skrive en brugers navn, alder, og addresse i et vindue. Én måde er at skrive den blok kode der sørger for at det sker, flere stede i koden. Følger man DRY princippet, Skal man lave en metode der skriver information, og kalde på den i stedet."
+        },
+        {
+            "Ask": "Hvad er Stack?",
+            "Options": [
+                "RAM",
+                "Heap",
+                "Storage"
+            ],
+            "RightChoice": "Correctamundo",
+            "WrongChoice": "Niks",
+            "Answer": "RAM",
+            "Explanation": "Stack er RAM, også kaldet Random Access Memory. alt der ligger i RAM som for eksempel value types, kan tilgås og bruges hurtigt. RAM, og i forlængelse heraf stack, har dog en begrænset størrelse. Så stører ting som objekter må så lægges i den støre, men langsommere, heap. Det der ligger i heapen bliver givet en reference der lægges i stack."
+        },
+        {
+            "Ask": "Hvor mange klasser kan en klasse arve fra?",
+            "Options": [
+                "1 klasse",
+                "2 klasser",
+                "4 klasser"
+            ],
+            "RightChoice": "Correctamundo",
+            "WrongChoice": "Niks",
+            "Answer": "1",
+            "Explanation": "En Klasse kan kun arve direkte fra 1 klasse. Man arver alt hvad base klassen har, inkluderet hvad den også arver. Så ville man gerne have en klasse der arver fra 2 forskellige klasser, må det være i form af en kæde. Hvor den ene af de 2 klasser bliver arvet af den anden, og den bliver arved af dem tredje."
+        },
+        {
+            "Ask": "Hvad sker der når man bruger en TryParse funktion til at konvertere et input?",
+            "Options": [
+                "Returnere en bool værdi. Resultatet af konverteringen bliver smidt i en anden variabel",
+                "Kører en blok kode. Opstår en fejl, vil funktionen starte forfra",
+                "Sender input til en metode der holder på den, indtil næste gang metoden køres"
+            ],
+            "RightChoice": "Correctamundo",
+            "WrongChoice": "Niks",
+            "Answer": "Returnere en bool værdi. Ved succes bliver resultatet af konverteringen også smidt i en anden variabel",
+            "Explanation": "TryParse har en indbygget exception håndtering, ligesom når man laver en Try-Catch. Funktionen Forsøger at konverterer input, og returnerer en bool værdi af forsøget: True hvis den er succesfuld, eller false hvis den ikke er. Funktionens parameter er både et input parameter, men også et output parameter. Det er der hvor der skrives, hvilken variabel resultatet af konverteringen skal lægges i."
+        },
+        {
+            "Ask": "Mellem string, int, og bool. hvilken er immutable?",
+            "Options": [
+                "string",
+                "int",
+                "bool"
+            ],
+            "RightChoice": "Correctamundo",
+            "WrongChoice": "Niks",
+            "Answer": "string",
+            "Explanation": "String er immutable, og det betyder at når først de er lavet, kan de ikke ændres. Alle de måder at ændre en string på, returnerer faktisk en ny string hver gang. Og siden string er en reference type, peger variablen bare på den nye string værdi."
+        }
+    ]
+}
